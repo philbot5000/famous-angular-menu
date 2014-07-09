@@ -13,12 +13,12 @@
     </fa-view>
     <fa-view id="main-content">
       <fa-modifier fa-translate="[contentViewPos.get(), 0, 0]" >
-        <!-- Toolbar -->
         <fa-modifier fa-translate="[0, 0, 0]">
           <fa-surface fa-size="[undefined, 40]" fa-background-color="'#000'">
-              <fa-surface fa-click="toggleMenu()" style="color: #fff;" fa-size="[30, 30]" fa-background-color="'#666'">
-              </fa-surface>
           </fa-surface>
+            <fa-modifier fa-translate="[5, 5, 0]">
+              <fa-surface fa-click="toggleMenu()" fa-size="[30, 30]" fa-background-color="'#666'"></fa-surface>
+            </fa-modifier>
         </fa-modifier>
         <fa-modifier fa-translate="[0, 40, 0]">
           <fa-surface fa-pipe-to="sync" fa-size="[undefined, undefined]" fa-background-color="'#f6f6f6'">
@@ -26,8 +26,7 @@
           </fa-surface>
         </fa-modifier>
         <!-- <fa-header-footer-layout>
-          <fa-surface fa-size="[undefined, 40]" fa-background-color="'#000'">
-          </fa-surface>
+          <fa-surface fa-size="[undefined, 40]" fa-background-color="'#000'"></fa-surface>
           <fa-surface fa-pipe-to="sync" fa-size="[undefined, undefined]" fa-background-color="'#f7f7f7'">
             <div style="font-size: 2em; padding: 10px;">Content</div>
           </fa-surface>

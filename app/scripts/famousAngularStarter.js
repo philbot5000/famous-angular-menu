@@ -14,8 +14,8 @@ angular.module('famousAngularStarter',
       })
       .state('test', {
         url: '/test',
-        templateUrl: 'partials/test.html',
-        controller: 'MainCtrl'
+        templateUrl: 'partials/scrollview.html',
+        controller: 'ScrollViewCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

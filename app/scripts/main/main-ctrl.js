@@ -14,7 +14,9 @@ angular.module('famousAngularStarter')
     var me = this;
 
 
-    $scope.toolbarTransform = Transform.behind;
+    $scope.toolbarTransform = function(){
+        return Transform.behind;
+    };
 
 
     var menuOpen = false;
