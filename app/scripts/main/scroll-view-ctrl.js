@@ -1,17 +1,16 @@
 'use strict';
 
 angular.module('famousAngularStarter')
-  .controller('ScrollViewCtrl', function ($scope, $famous) {
+  .controller('ScrollViewCtrl', function ($scope, $famous, Treefort) {
     var EventHandler = $famous['famous/core/EventHandler'];
     $scope.eventHandler = new EventHandler();
-    $scope.list = [{content: "famous"}, {content: "angular"}, {content: "rocks!"}];
+
+    Treefort.getArtists().then(function (response) {
+      $scope.list = response.data;
+    });
 
     $scope.options = {
-      scrollViewOuter: {
-        direction: 0,
-        paginated: true
-      },
-      scrollViewInner: {
+      scrollView: {
         direction: 1
       }
     };

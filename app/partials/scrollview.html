@@ -1,29 +1,19 @@
 <fa-app style="width: 320px; height: 568px;">
-   <!-- outer scroll view that scrolls horizontally between "main" view and "sidebar" view-->
-   <fa-scroll-view fa-pipe-from="eventHandler" fa-options="options.scrollViewOuter">
-
-      <!-- sidebar view -->
-      <fa-view fa-index="0">
-        <fa-modifier fa-size="[100, undefined]" id="sideBarMod">
-            <fa-surface fa-pipe-to="eventHandler"
-                        fa-background-color="'blue'"
-                        fa-size="[undefined, undefined]">
-            </fa-surface>
-          </fa-modifier>
+<fa-modifier>
+  <fa-surface fa-size="[undefined, 50]" fa-background-color="'black'">
+</fa-modifier>
+<fa-modifier fa-size="[undefined, undefined]">
+   <fa-scroll-view fa-pipe-from="eventHandler" fa-options="options.scrollView" fa-start-index="1">
+     <fa-view ng-repeat="item in list">
+        <fa-modifier id="{{'listItem' + $index}}" fa-translate="[0, 50, 0]" fa-size="[undefined, 60]">
+          <!-- All events on fa-surfaces (click, mousewheel) are piped to $scope.eventHandler -->
+          <fa-surface fa-pipe-to="eventHandler"
+                      fa-size="[undefined, undefined]"
+                      fa-background-color="'red'">
+                      <div style="margin-left: 10px; color: #fff; display: block; font-size: 1.2em; border-bottom: 1px solid #fff;">{{item.artist}}</div>
+          </fa-surface>
+        </fa-modifier>
       </fa-view>
-
-      <!-- main view -->
-      <fa-view fa-index="1">
-      <!-- inner scroll view that scrolls vertically-->
-        <fa-scroll-view fa-pipe-from="eventHandler" fa-options="options.scrollViewInner">
-          <fa-view ng-repeat="item in list">
-            <fa-surface fa-pipe-to="eventHandler"
-                        fa-size="[undefined, undefined]"
-                        fa-background-color="'red'">
-            </fa-surface>
-          </fa-view>
-        </fa-scroll-view>
-      </fa-view>
-
-    </fa-scroll-view>
-  </fa-app>
+   </fa-scroll-view>
+</fa-modifier>
+</fa-app>
